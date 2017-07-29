@@ -1,0 +1,29 @@
+{
+  "name": "omni",
+  "version": "1.0.0",
+  "description": "helper functions for passing state from server to client for js components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigkj/omni.git"
+  },
+  "author": "craigkjones@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/craigkj/omni/issues"
+  },
+  "homepage": "https://github.com/craigkj/omni#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.0",
+    "jsdom": "^11.1.0",
+    "mocha": "^3.4.2",
+    "sinon": "^2.4.1"
+  },
+  "dependencies": {
+    "babel-register": "^6.24.1"
+  }
+}
