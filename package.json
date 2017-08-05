@@ -1,6 +1,6 @@
 {
   "name": "state-pass",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "helper functions for passing state from server to client for js components",
   "main": "lib/statePass.js",
   "scripts": {
