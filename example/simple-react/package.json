@@ -4,7 +4,8 @@
   "description": "simple statePass example with react and webpack",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "webpack -p"
   },
   "keywords": [
     "statePass",

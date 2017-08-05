@@ -1,8 +1,8 @@
 {
   "name": "state-pass",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "helper functions for passing state from server to client for js components",
-  "main": "lib/statePass.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "babel src/* -o lib/statePass.js",
     "test": "npm test"
@@ -16,6 +16,14 @@
   "bugs": {
     "url": "https://github.com/craigkj/statePass/issues"
   },
+  "keywords": [
+    "statePass",
+    "client",
+    "server",
+    "state",
+    "react",
+    "ssr"
+  ],
   "homepage": "https://github.com/craigkj/statePass#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
