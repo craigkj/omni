@@ -1,25 +1,34 @@
-# omni
+# statePass
 
 A js framework agnostic collection of helper functions for passing state from the server to the client for SSR rendered components.
+
+Get
+---
+
+// how to install
 
 Use
 ---
 
-```javascript
-import Omni from 'omni';
+Basic usage is listed below, see the examples folder for a working example using react and webpack.
 
-omni.createClientPayload('myComponentName', component, state);
+```javascript
+import statePass from 'statePass';
+
+statePass.createPayload('myComponentName', component, state);
 ```
 
 then on the client:
 
 ```javascript
-import Omni from 'omni';
+import statePass from 'omni';
 
-const state = omni.decodeServerState();
+const componentData = omni.decodeServerState();
 
-// think of example and finish this.
+const state = componentData.myComponentName.state;
+const component = componentData.myComponentName.component;
 
+// use the state on the client to re-render the component
 ```
 
 Develop

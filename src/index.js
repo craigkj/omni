@@ -11,7 +11,6 @@ function decodeState(state) {
     try {
         return JSON.parse(state);
     } catch (error) {
-        console.log(error);
         return state;
     }
 }
@@ -52,6 +51,12 @@ function decodeServerState() {
 }
 
 export {
+    decodeServerStateForComponent,
+    decodeServerState,
+    createPayload
+}
+
+export default {
     decodeServerStateForComponent,
     decodeServerState,
     createPayload

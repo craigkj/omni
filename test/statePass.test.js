@@ -1,10 +1,10 @@
 import jsdom from 'jsdom';
 import { expect } from 'chai';
-import * as Omni from '../src';
+import * as statePass from '../src';
 
 const { JSDOM } = jsdom;
 
-describe('Omni', () => {
+describe('statePass', () => {
 
     describe('SSR Payload', () => {
 
@@ -16,7 +16,7 @@ describe('Omni', () => {
                 world: true
             };
 
-            const payload = Omni.createPayload(fakeComponentId, fakeComponent, fakeState);
+            const payload = statePass.createPayload(fakeComponentId, fakeComponent, fakeState);
 
             expect(payload).to.contain('data-component-id=testComponent');
             expect(payload).to.contain('data-markup-id=testComponent');
@@ -30,7 +30,7 @@ describe('Omni', () => {
                 state: true
             };
 
-            const payload = Omni.createPayload(fakeComponentId, fakeComponent, fakeState);
+            const payload = statePass.createPayload(fakeComponentId, fakeComponent, fakeState);
             const dom = new JSDOM(`<!DOCTYPE html>${payload}`);
             const stateElement = dom.window.document.querySelectorAll(`[data-state-id="${fakeComponentId}"]`);
 
@@ -48,13 +48,13 @@ describe('Omni', () => {
                 const fakeState = {
                     state: true
                 };
-                const payload = Omni.createPayload(fakeComponentId, fakeComponent, fakeState);
+                const payload = statePass.createPayload(fakeComponentId, fakeComponent, fakeState);
 
                 const dom = new JSDOM(`<!DOCTYPE html>${payload}`);
 
                 global.document = dom.window.document;
 
-                const state = Omni.decodeServerState();
+                const state = statePass.decodeServerState();
 
                 expect(state).to.have.all.keys(fakeComponentId);
                 expect(state[fakeComponentId]).to.have.all.keys(['container', 'state']);
@@ -74,8 +74,8 @@ describe('Omni', () => {
                 test: true
             };
 
-            const payload1 = Omni.createPayload(fakeComponentId1, fakeComponent1, fakeState1);
-            const payload2 = Omni.createPayload(fakeComponentId2, fakeComponent2, fakeState2);
+            const payload1 = statePass.createPayload(fakeComponentId1, fakeComponent1, fakeState1);
+            const payload2 = statePass.createPayload(fakeComponentId2, fakeComponent2, fakeState2);
 
             describe('decoding entire state', () => {
                 it('should return object with expected keys', () => {
@@ -83,7 +83,7 @@ describe('Omni', () => {
 
                     global.document = dom.window.document;
 
-                    const state = Omni.decodeServerState();
+                    const state = statePass.decodeServerState();
 
                     expect(state).to.have.all.keys([fakeComponentId1, fakeComponentId2]);
                 });
@@ -93,7 +93,7 @@ describe('Omni', () => {
 
                     global.document = dom.window.document;
 
-                    const state = Omni.decodeServerState();
+                    const state = statePass.decodeServerState();
 
                     expect(state[fakeComponentId1].state).to.eql(fakeState1);
                     expect(state[fakeComponentId2].state).to.eql(fakeState2);
@@ -105,7 +105,7 @@ describe('Omni', () => {
                     const dom = new JSDOM(`<!DOCTYPE html><span>${payload1}${payload2}</span>`);
 
                     global.document = dom.window.document;
-                    const state = Omni.decodeServerStateForComponent(fakeComponentId2);
+                    const state = statePass.decodeServerStateForComponent(fakeComponentId2);
 
                     expect(state).to.have.all.keys([fakeComponentId2]);
                     expect(state[fakeComponentId2].state).to.eql(fakeState2);
