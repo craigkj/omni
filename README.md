@@ -28,7 +28,7 @@ then on the client:
 ```javascript
 import statePass from 'state-pass';
 
-const componentData = omni.decodeServerState();
+const componentData = statePass.decodeServerState();
 
 const state = componentData.myComponentName.state;
 const component = componentData.myComponentName.component;
